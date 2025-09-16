@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goldglem | Jual Beli Ikan Mas Koki Berkualitas</title>
+    <link rel="icon" href="goldglem_head.png" type="image/png"> 
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <img src="goldglem_lowres.png" alt="" width="150px">
+        <h1>Website Goldglem Segera Hadir!</h1>
+        <p>Kami sedang mempersiapkan sesuatu yang istimewa untuk para pecinta ikan mas koki. Nantikan peluncuran resmi kami!</p>
+        
+        <div id="countdown">
+            <div class="time-unit">
+                <span id="days">00</span>
+                Hari
+            </div>
+            <div class="time-unit">
+                <span id="hours">00</span>
+                Jam
+            </div>
+            <div class="time-unit">
+                <span id="minutes">00</span>
+                Menit
+            </div>
+            <div class="time-unit">
+                <span id="seconds">00</span>
+                Detik
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- ATUR TANGGAL PELUNCURAN DI SINI ---
+        // Format: Bulan NamaHari, Tahun Jam:Menit:Detik
+        const countDownDate = new Date("Sep 18, 2025 15:30:00").getTime();
+
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("minutes").innerText = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").innerText = String(seconds).padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "<h2>Website Kami Telah Diluncurkan!</h2>";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
